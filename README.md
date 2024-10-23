@@ -2,6 +2,64 @@
 
 A collection of configurations and applications for my Ubuntu configuration. Could be a script, but due to the infrequency of use it's maybe better to run these manually and inspect the output for any errors due to changes. 
 
+## Tools before continuing installations
+
+First, let's upgrade any existing packages and install a few others that will be needed often.
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt dist-upgrade -y
+sudo apt install curl git
+```
+
+
+## Nice aliases and bash configuration
+
+Add the aliases from `bash-aliases.sh` and `git-aliases.sh` to your bash aliases list:
+
+```bash
+cat bash-aliases.sh git-aliases.sh >> $HOME/.bash_aliases
+```
+
+`bashrc-additions.sh` adds some options from sensible-bash.sh and oh-my-bash to make using bash a bit easier. Arguably most of these would be set if bash was made today. 
+
+```bash
+cat bashrc-additions.sh >> $HOME/.bashrc
+source $HOME/.bashrc
+```
+
+## Git configuration
+
+Execute these lines one by one, `ssh-keygen` asks for additional information.
+
+```bash
+export EMAIL="your.email@here"
+export MYNAME="Your Name"
+
+ssh-keygen -t ed25519 -C ${EMAIL}
+eval "$(ssh-agent -s)"
+ssh-add -k ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+
+git config --global user.name ${MYNAME}
+git config --global user.email ${EMAIL}
+```
+
+## terminator
+
+A more versatile terminal.
+
+```bash
+sudo add-apt-repository ppa:mattrose/terminator
+sudo apt-get update
+sudo apt install terminator
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/terminator 50
+```
+
+Make a new profile in Terminator to get rid of any "config not found" errors.
+
 ## oh-my-posh
 
 Nice bash terminal themes. Uses a custom theme blended from Catppuccin and Chips. Note the path export, which needs to be configured to your user.
@@ -34,40 +92,6 @@ sudo apt install fzf
 # git-extras adds more git commands. See "git extras"
 brew install git-extras
 # or 'sudo apt install git-extras' for an older version wihout homebrew
-```
-
-## Git configuration
-
-Execute these lines one by one, `ssh-keygen` asks for additional information.
-
-```bash
-export EMAIL="your.email@here"
-export MYNAME="Your Name"
-
-ssh-keygen -t ed25519 -C ${EMAIL}
-eval "$(ssh-agent -s)"
-ssh-add -k ~/.ssh/id_ed25519
-cat ~/.ssh/id_ed25519.pub
-
-git config --global user.name ${MYNAME}
-git config --global user.email ${EMAIL}
-```
-
-
-## Nice aliases and bash configuration
-
-Add the aliases from `bash-aliases.sh` and `git-aliases.sh` to your bash aliases list:
-
-```bash
-cat bash-aliases.sh git-aliases.sh >> $HOME/.bash_aliases
-source $HOME/.bashrc
-```
-
-`bashrc-additions.sh` adds some options from sensible-bash.sh and oh-my-bash to make using bash a bit easier. Arguably most of these would be set if bash was made today. 
-
-```bash
-cat bashrc-additions.sh >> $HOME/.bashrc
-source $HOME/.bashrc
 ```
 
 ## Conda (if needed)
