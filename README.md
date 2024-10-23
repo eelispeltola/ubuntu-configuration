@@ -32,13 +32,15 @@ source $HOME/.bashrc
 
 ## Git configuration
 
-Execute these lines one by one, `ssh-keygen` asks for additional information.
+Enter your name and email for Git here, and generate an SSH key for Github/Gitlab.
 
 ```bash
 export EMAIL="your.email@here"
 export MYNAME="Your Name"
 
+# Execute this line on its own, asks multiple follow-up questions:
 ssh-keygen -t ed25519 -C ${EMAIL}
+
 eval "$(ssh-agent -s)"
 ssh-add -k ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
@@ -90,8 +92,9 @@ echo -e "\n. /usr/share/autojump/autojump.sh" >> ~/.bashrc
 # Fuzzy find with a UI. For example "fzf ."
 sudo apt install fzf
 # git-extras adds more git commands. See "git extras"
-brew install git-extras
-# or 'sudo apt install git-extras' for an older version wihout homebrew
+brew install git-extras  # or 'sudo apt install git-extras' for an older version wihout homebrew
+# btop gives a nice UI for monitoring system usage (like top)
+brew install btop
 ```
 
 ## Conda (if needed)
@@ -126,3 +129,13 @@ test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 ```
+
+## External installation instructions
+
+Some software is easiest to install with their own `.deb` package or installation instructions.
+
+- [VSCode](https://code.visualstudio.com/Download)
+- [CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#ubuntu)
+  - [Quick start guide](https://docs.nvidia.com/cuda/cuda-quick-start-guide/index.html#ubuntu)
+  - [Version list](https://developer.nvidia.com/cuda-toolkit-archive)
+- [ROS2](https://docs.ros.org/en/humble/Installation.html)
