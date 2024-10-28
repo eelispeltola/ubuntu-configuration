@@ -1,35 +1,43 @@
-alias upall="sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y"
+alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y'
 # If brew is installed, add it to upall
 if [ $(type -P -- "brew") ]; then
-  alias upall="sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && brew update && brew upgrade"
+  alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && brew update && brew upgrade'
 fi
-alias aptlist="apt list --installed"
-alias newvenv="rm -r .venv; python3.11 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip"
-alias svenv="source .venv/bin/activate"
+alias aptlist='apt list --installed'
+alias newvenv='rm -r .venv; python3.11 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip'
+alias svenv='source .venv/bin/activate'
 alias py='python'
 
-# Conda
-alias coc="conda create -y --name ${PWD##*/}"  # Creates conda env with the name of the current working directory
-alias coa="conda activate ${PWD##*/}"
-alias cod="conda deactivate"
-alias cor="conda remove --name ${PWD##*/} --all"
+# Search in list of aliases
+function _grep_aliases(){
+  if [[ $1 ]]; then
+    alias | grep "$1" --color=never
+  fi
+}
+alias aliases='_grep_aliases'
 
+# Conda
+alias coc='conda create --name ${PWD##*/}  # Creates conda env with the name of the current working directory'
+alias coa='conda activate ${PWD##*/}'
+alias cod='conda deactivate'
+alias cor='conda remove --name ${PWD##*/} --all'
+nan
 
 ## Select aliases from oh-my-bash
 
 # Ask before cp and mv, show result after
-alias cp="cp -iv"
-alias mv="mv -iv"
+alias cp='cp -iv'
+alias mv='mv -iv'
 
-alias mkdir="mkdir -pv"                     # Make nested dirs with mkdir and show result
-alias nano="nano -W"                        # Detect wordbounds in nano
+alias mkdir='mkdir -pv'                     # Make nested dirs with mkdir and show result
+alias nano='nano -W'                        # Detect wordbounds in nano
 
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias wget='wget -c'                        # Preferred 'wget' implementation (resume download)
 alias c='clear'                             # c:            Clear terminal display
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
-alias h="history"
+alias h='history'
 
 # Directory Listing aliases
 alias ll='ls -lAFh'                         # Preferred 'ls' implementation

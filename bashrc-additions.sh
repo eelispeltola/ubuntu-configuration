@@ -32,7 +32,7 @@ PROMPT_COMMAND='history -a'
 HISTSIZE=500000
 HISTFILESIZE=100000
 # Avoid duplicate entries
-HISTCONTROL="erasedups:ignoreboth"
+HISTCONTROL="ignoreboth"
 # Don't record some commands
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 # Use standard ISO 8601 timestamp
