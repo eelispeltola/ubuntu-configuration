@@ -30,6 +30,8 @@ cat bashrc-additions.sh >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
 
+After adding these scripts to .bashrc, you might want to go through it and remove the duplicates that were already there for some  of the commands.
+
 ## Git configuration
 
 Enter your name and email for Git here, and generate an SSH key for Github/Gitlab.
