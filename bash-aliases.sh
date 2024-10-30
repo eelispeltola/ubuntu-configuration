@@ -8,20 +8,20 @@ alias newvenv='rm -r .venv; python3.11 -m venv .venv && source .venv/bin/activat
 alias svenv='source .venv/bin/activate'
 alias py='python'
 
-# Search in list of aliases
-function _grep_aliases(){
-  if [[ $1 ]]; then
-    alias | grep "$1" --color=never
-  fi
-}
-alias aliases='_grep_aliases'
+# # Search in list of aliases (does not see functions)
+# function _grep_aliases(){
+#   if [[ $1 ]]; then
+#     alias | grep "$1" --color=never
+#   fi
+# }
+# alias aliases='_grep_aliases'
 
 # Conda
 alias coc='conda create --name ${PWD##*/}  # Creates conda env with the name of the current working directory'
 alias coa='conda activate ${PWD##*/}'
 alias cod='conda deactivate'
 alias cor='conda remove --name ${PWD##*/} --all'
-nan
+
 
 ## Select aliases from oh-my-bash
 
@@ -76,9 +76,9 @@ function mcd { mkdir -p -- "$*" ; cd -- "$*" || exit ; }
 #   --------------------------------------------------------------------
 function mans { man "$1" | grep -iC2 --color=always "$2" | less ; }
 
-#   showa: to remind yourself of an alias (given some part of it)
+#   aliases: to remind yourself of an alias (given some part of it), expects aliases to be in ~/.bash_aliases
 #   ------------------------------------------------------------
-function showa { /usr/bin/grep --color=always -i -a1 "$@" ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
+function aliases { /usr/bin/grep --color=always -i -a1 "$@" ~/.bash_aliases | grep -v '^\s*$' | less -FSRXc ; }
 
 #   quiet: mute output of a command
 #   ------------------------------------------------------------
