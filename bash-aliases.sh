@@ -1,6 +1,6 @@
 alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y'
 # If brew is installed, add it to upall
-if [ $(type -P -- "brew") ]; then
+if [ "$(type -P -- "brew")" ]; then
   alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && brew update && brew upgrade'
 fi
 alias aptlist='apt list --installed'
