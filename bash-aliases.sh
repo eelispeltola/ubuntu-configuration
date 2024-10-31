@@ -17,7 +17,7 @@ alias py='python'
 # alias aliases='_grep_aliases'
 
 # Conda
-alias coc='conda create --name ${PWD##*/}  # Creates conda env with the name of the current working directory'
+alias coc='conda create --name ${PWD##*/} python=3.11  # Creates conda env with the name of the current working directory'
 alias coa='conda activate ${PWD##*/}'
 alias cod='conda deactivate'
 alias cor='conda remove --name ${PWD##*/} --all'
