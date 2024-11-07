@@ -17,10 +17,10 @@ sudo apt install curl git
 
 ## Nice aliases and bash configuration
 
-Add the aliases from `bash-aliases.sh` and `git-aliases.sh` to your bash aliases list:
+Add the aliases from `aliases/` to your bash aliases list:
 
 ```bash
-cat bash-aliases.sh git-aliases.sh >> $HOME/.bash_aliases
+cat aliases/* >> $HOME/.bash_aliases
 ```
 
 `bashrc-additions.sh` adds some options from sensible-bash.sh and oh-my-bash to make using bash a bit easier. Arguably most of these would be set if bash was made today. 
@@ -30,7 +30,7 @@ cat bashrc-additions.sh >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
 
-After adding these scripts to .bashrc, you might want to go through it and remove the duplicates that were already there for some  of the commands.
+After adding these scripts to `.bashrc`, you might want to go through it and remove the duplicates that were already there for some of the commands.
 
 ## Git configuration
 

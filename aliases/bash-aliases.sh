@@ -1,13 +1,3 @@
-alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y'
-# If brew is installed, add it to upall
-if [ "$(type -P -- "brew")" ]; then
-  alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && brew update && brew upgrade'
-fi
-alias aptlist='apt list --installed'
-alias newvenv='rm -r .venv; python3.11 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip'
-alias svenv='source .venv/bin/activate'
-alias py='python'
-
 # # Search in list of aliases (does not see functions)
 # function _grep_aliases(){
 #   if [[ $1 ]]; then
@@ -15,12 +5,6 @@ alias py='python'
 #   fi
 # }
 # alias aliases='_grep_aliases'
-
-# Conda
-alias coc='conda create --name ${PWD##*/} python=3.11  # Creates conda env with the name of the current working directory'
-alias coa='conda activate ${PWD##*/}'
-alias cod='conda deactivate'
-alias cor='conda remove --name ${PWD##*/} --all'
 
 
 ## Select aliases from oh-my-bash
@@ -40,13 +24,14 @@ alias show_options='shopt'                  # Show_options: display bash options
 alias h='history'
 
 # Directory Listing aliases
-alias ll='ls -lAFh'                         # Preferred 'ls' implementation
+alias ll='ls -lAFh'                         # List-all 'ls' implementation
 alias lc='ls -lAcr'                         # sort by change time
 alias lh='ls -lASrh'                        # sort by size human readable
 alias dud='du -d 1 -h'                      # Short and human-readable directory listing
 alias duf='du -sh *'                        # Short and human-readable file listing
 # lr:  Full Recursive Directory Listing
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+alias l='ll'                                # Preferred 'ls' implementation
 
 alias numFiles='printf "%s\n" $(ls -1 | wc -l)'       # numFiles:     Count of non-hidden files in current dir
 

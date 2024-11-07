@@ -68,6 +68,8 @@ function _git_log_prettily(){
 alias glp='_git_log_prettily'
 #compdef _git glp=git-log
 
+# Add everything that was changed, amend the last comment and push
+alias goops='git add -u && git commit --amend --no-edit && git push --force-with-lease --force-if-includes'
 
 # what would be merged
 alias gincoming='git log HEAD..@{upstream}'
