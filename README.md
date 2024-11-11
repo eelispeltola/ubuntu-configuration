@@ -66,7 +66,7 @@ Make a new profile in Terminator to get rid of any "config not found" errors.
 
 ## oh-my-posh
 
-Nice bash terminal themes. Uses a custom theme blended from Catppuccin and Chips. Note the path export, which needs to be configured to your user.
+Nice bash terminal themes. Uses a custom theme blended from Catppuccin and Chips. In `tigerppuccin.omp.json`, change the `DeviceName` variable to your own device's hostname if you wish to hide it in the terminal. The hostname will then only show up if SSH'd into a different machine.
 
 ```bash
 sudo apt install unzip zip

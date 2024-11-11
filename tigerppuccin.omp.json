@@ -11,6 +11,9 @@
         "sunflower": "#ffe600",
         "text": "#16181f"
   },
+  "var": {
+         "DeviceName": "your_device_here"
+  },
   "blocks": [
     {
       "alignment": "left",
@@ -36,7 +39,7 @@
           "foreground": "p:text",
           "powerline_symbol": "\ue0b4",
           "style": "powerline",
-          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}{{ if matchP \"^L24-0397$\" .HostName }}{{ else }}@{{ .HostName }}{{ end }} ",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}{{ if eq .Var.DeviceName .HostName }}{{ else }}@{{ .HostName }}{{ end }} ",
           "type": "session"
         },
         {
