@@ -1,77 +1,85 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
-        "os": "#ACB0BE",
-        "pink": "#F5BDE6",
-        "lavender": "#B7BDF8",
-        "blue":  "#8AADF4",
-        "lilac": "#d1a5ee",
-        "wight": "#FFFFFF",
-        "warm": "#db1c5c",
-        "sunflower": "#ffe600",
-        "text": "#16181f"
+    "blue": "#8AADF4",
+    "lavender": "#B7BDF8",
+    "lilac": "#d1a5ee",
+    "os": "#ACB0BE",
+    "pink": "#F5BDE6",
+    "sunflower": "#ffe600",
+    "text": "#16181f",
+    "warm": "#db1c5c",
+    "wight": "#FFFFFF"
   },
   "var": {
-         "DeviceName": "your_device_here"
+    "DeviceName": "your_device_here"
   },
+  "console_title_template": "{{ if .Segments.Session.SSHSession }}SSH'd{{ if or .Root }} & {{ end }}{{ end }}{{ if .Root }}# (as {{ .UserName }}) | {{ end }}{{ if .WSL }}WSL | {{ end }}{{ .Folder }} ({{ .Shell }})",
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "leading_diamond": "\ue0b6",
+          "template": "{{.Icon}} ",
+          "foreground": "p:wight",
+          "type": "os",
+          "style": "diamond",
           "background_templates": [
             "{{ if and (.Segments.Session.SSHSession) (not .Segments.Session.Root) }}p:warm{{ end }}",
             "{{ if and (.Segments.Session.SSHSession) (.Segments.Session.Root) }}p:sunflower{{ end }}",
             "{{ if not .Segments.Session.SSHSession }}p:blue{{ end }}"
-          ],
-          "foreground": "p:wight",
-          "leading_diamond": "\ue0b6",
-          "style": "diamond",
-          "template": "{{.Icon}} ",
-          "type": "os"
+          ]
         },
         {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}{{ if eq .Var.DeviceName .HostName }}{{ else }}@{{ .HostName }}{{ end }} ",
+          "foreground": "p:text",
+          "powerline_symbol": "\ue0b4",
+          "type": "session",
+          "style": "powerline",
           "background_templates": [
             "{{ if and (.SSHSession) (not .Root) }}p:warm{{ end }}",
             "{{ if and (.SSHSession) (.Root) }}p:sunflower{{ end }}",
             "{{ if not .SSHSession }}p:blue{{ end }}"
-          ],
-          "foreground": "p:text",
-          "powerline_symbol": "\ue0b4",
-          "style": "powerline",
-          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}{{ if eq .Var.DeviceName .HostName }}{{ else }}@{{ .HostName }}{{ end }} ",
-          "type": "session"
+          ]
         },
         {
-          "background": "p:pink",
-          "foreground": "p:text",
           "properties": {
+            "cache_duration": "none",
             "folder_icon": "\ue5fe",
             "home_icon": "~",
             "style": "agnoster_full"
           },
-          "powerline_symbol": "\ue0b4",
-          "style": "powerline",
           "template": " {{ .Path }} ",
-          "type": "path"
+          "foreground": "p:text",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:pink",
+          "type": "path",
+          "style": "powerline"
         },
         {
-          "background": "p:lilac",
-          "foreground": "p:text",
-          "style": "powerline",
           "properties": {
+            "cache_duration": "none",
             "display_mode": "context"
           },
+          "template": "{{ if .Venv }} \ue235 {{ .Venv }} {{ end }}",
+          "foreground": "p:text",
           "powerline_symbol": "\ue0b4",
-          "template": "{{ if .Venv }} \uE235 {{ .Venv }} {{ end }}",
-          "type": "python"
+          "background": "p:lilac",
+          "type": "python",
+          "style": "powerline"
         },
         {
-          "background": "p:lavender",
-          "foreground": "p:text",
-          "style": "powerline",
           "properties": {
             "branch_icon": "\ue725 ",
+            "cache_duration": "none",
             "cherry_pick_icon": "\ue29b ",
             "commit_icon": "\uf417 ",
             "fetch_status": true,
@@ -82,47 +90,45 @@
             "revert_icon": "\uf0e2 ",
             "tag_icon": "\uf412 "
           },
+          "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf448 ({{ .Working.String }}){{ end }}{{ if and .Working.Changed .Staging.Changed }} \ue0b1 {{ end }}{{ if .Staging.Changed }}{{ if not .Working.Changed }} \uf15c {{ end }}\uf15c ({{ .Staging.String }}){{ end }}{{ if .StashCount }} (\ueb4b {{ .StashCount }} stash{{ if gt .StashCount 1 }}es{{ end }}){{ end }}",
+          "foreground": "p:text",
           "powerline_symbol": "\ue0b4",
-          "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uF448 ({{ .Working.String }}){{ end }}{{ if and .Working.Changed .Staging.Changed }} \uE0B1 {{ end }}{{ if .Staging.Changed }}{{ if not .Working.Changed }} \uf15c {{ end }}\uf15c ({{ .Staging.String }}){{ end }}{{ if .StashCount }} (\ueb4b {{ .StashCount }} stash{{ if gt .StashCount 1 }}es{{ end }}){{ end }}",
-          "type": "git"
+          "background": "p:lavender",
+          "type": "git",
+          "style": "powerline"
         },
         {
-          "background": "p:wight",
-          "foreground": "p:text",
-          "style": "powerline",
           "properties": {
+            "cache_duration": "none",
             "style": "austin",
             "threshold": 1
           },
-          "powerline_symbol": "\ue0b4",
           "template": " \udb81\udd1b {{ .FormattedMs }}",
-          "type": "executiontime"
+          "foreground": "p:text",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:wight",
+          "type": "executiontime",
+          "style": "powerline"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
+      "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
-
-          "foreground": "p:wight",
           "properties": {
-            "ubuntu": "\uF31b"  
+            "cache_duration": "none"
           },
-          "powerline_symbol": "\ue0b4",
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
-          "style": "plain",
-          "template": "\n",
-          "type": "text"
+          "template": " {{.Icon}}",
+          "foreground": "p:wight",
+          "type": "os",
+          "style": "plain"
         }
       ],
-      "type": "prompt"
+      "newline": true
     }
   ],
-  "console_title_template": "{{ if .Segments.Session.SSHSession }}SSH'd{{ if or .Root }} & {{ end }}{{ end }}{{ if .Root }}# (as {{ .UserName }}) | {{ end }}{{ if .WSL }}WSL | {{ end }}{{ .Folder }} ({{ .Shell }})",
-  "final_space": true,
-  "version": 2
+  "version": 3,
+  "final_space": true
 }
