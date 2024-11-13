@@ -75,6 +75,7 @@ cp tigerppuccin.omp.json ~/.cache/oh-my-posh/themes/
 echo -e '\nexport PATH=$PATH:${HOME}/.local/bin' >> ~/.bashrc
 echo 'eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/tigerppuccin.omp.json)"' >> ~/.bashrc
 exec bash
+oh-my-posh enable upgrade  # Enable autoupgrade
 ```
 
 Install Nerd Font (for example `UbuntuMono Nerd Font`, installable with the command below) either from [nerdfonts.com](https://www.nerdfonts.com/) or with [oh-my-posh](https://ohmyposh.dev/docs/installation/fonts), and configure terminal to use it. If using VSCode, set the integrated terminal font in VSCode settings.
@@ -88,10 +89,10 @@ oh-my-posh font install UbuntuMono
 ```bash
 # Pip
 sudo apt install python3-pip
-# Use "j <(partial) path>", to jump to a previously visited directory in the terminal.
+# Use 'j <(partial) path>', to jump to a previously visited directory in the terminal.
 sudo apt install autojump
 echo -e "\n. /usr/share/autojump/autojump.sh" >> ~/.bashrc
-# Fuzzy find with a UI. For example "fzf ."
+# Fuzzy find with a UI. Run 'fzf' in any directory.
 sudo apt install fzf
 # git-extras adds more git commands. See "git extras"
 brew install git-extras  # or 'sudo apt install git-extras' for an older version wihout homebrew
