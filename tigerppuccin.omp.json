@@ -67,7 +67,8 @@
         {
           "properties": {
             "cache_duration": "none",
-            "display_mode": "context"
+            "display_mode": "always",
+            "home_enabled": true
           },
           "template": "{{ if .Venv }} \ue235 {{ .Venv }} {{ end }}",
           "foreground": "p:text",
