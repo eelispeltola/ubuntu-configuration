@@ -1,9 +1,13 @@
 # apt
-alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y'
-# If brew is installed, add it to upall
-if [ "$(type -P -- "brew")" ]; then
-  alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && brew update && brew upgrade'
-fi
+# alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update'
+# Assumes brew and oh-my-posh are installed
+alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update && brew update && brew upgrade && oh-my-posh upgrade'
+
+
+# If brew is installed, add it to upall (this doesn't work for some reason)
+# if [ "$(type -P -- "brew")" ]; then
+#   alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update && brew update && brew upgrade'
+# fi
 alias aptlist='apt list --installed'
 
 # Python

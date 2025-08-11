@@ -75,7 +75,7 @@ cp tigerppuccin.omp.json ~/.cache/oh-my-posh/themes/
 echo -e '\nexport PATH=$PATH:${HOME}/.local/bin' >> ~/.bashrc
 echo 'eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/tigerppuccin.omp.json)"' >> ~/.bashrc
 exec bash
-oh-my-posh enable upgrade  # Enable autoupgrade
+# oh-my-posh enable upgrade  # Enable autoupgrade
 ```
 
 Install Nerd Font (for example `UbuntuMono Nerd Font`, installable with the command below) either from [nerdfonts.com](https://www.nerdfonts.com/) or with [oh-my-posh](https://ohmyposh.dev/docs/installation/fonts), and configure terminal to use it. If using VSCode, set the integrated terminal font in VSCode settings.
@@ -89,6 +89,8 @@ oh-my-posh font install UbuntuMono
 ```bash
 # Pip
 sudo apt install python3-pip
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 # Use 'j <(partial) path>', to jump to a previously visited directory in the terminal.
 sudo apt install autojump
 echo -e "\n. /usr/share/autojump/autojump.sh" >> ~/.bashrc
@@ -115,7 +117,7 @@ conda init --all
 
 ## Newer Python (if needed)
 
-Conda installs its own Python version, but if using pip any other Python versions are best downloaded from `deadsnakes`.
+Conda and uv handle Python versions on their own, but if using pip, any other Python versions are best downloaded from `deadsnakes`.
 
 ```bash
 sudo add-apt-repository ppa:deadsnakes/ppa
