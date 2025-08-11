@@ -11,10 +11,10 @@ alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade 
 alias aptlist='apt list --installed'
 
 # Python
-alias newvenv='rm -r .venv; python3.11 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip'
+alias newvenv='rm -r .venv; python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip'
 alias svenv='source .venv/bin/activate'
 alias py='python'
-alias coc='conda create --name ${PWD##*/} python=3.11  # Creates conda env with the name of the current working directory'
+alias coc='conda create --name ${PWD##*/}  # Creates conda env with the name of the current working directory'
 alias coa='conda activate ${PWD##*/}'
 alias cod='conda deactivate'
 alias cor='conda remove --name ${PWD##*/} --all'
