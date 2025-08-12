@@ -1,12 +1,12 @@
 # apt
-# alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update'
+# alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update -y'
 # Assumes brew and oh-my-posh are installed
-alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update && brew update && brew upgrade && oh-my-posh upgrade'
+alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update -y && brew update && brew upgrade && oh-my-posh upgrade'
 
 
 # If brew is installed, add it to upall (this doesn't work for some reason)
 # if [ "$(type -P -- "brew")" ]; then
-#   alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update && brew update && brew upgrade'
+#   alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update -y && brew update && brew upgrade'
 # fi
 alias aptlist='apt list --installed'
 
