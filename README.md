@@ -122,6 +122,8 @@ docker run hello-world
 sudo apt install python3-pip
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
 # Use 'j <(partial) path>', to jump to a previously visited directory in the terminal.
 sudo apt install autojump
 echo -e "\n. /usr/share/autojump/autojump.sh" >> ~/.bashrc

@@ -1,7 +1,7 @@
 # apt
 # alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update -y'
-# Assumes brew and oh-my-posh are installed
-alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update -y && brew update && brew upgrade && oh-my-posh upgrade'
+# Assumes brew, uv, and oh-my-posh are installed
+alias upall='sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && flatpak update -y && brew update && brew upgrade && oh-my-posh upgrade && uv self update'
 
 
 # If brew is installed, add it to upall (this doesn't work for some reason)
