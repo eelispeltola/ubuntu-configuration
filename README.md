@@ -72,11 +72,11 @@ sudo apt install terminator
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/terminator 50
 ```
 
-Make a new profile in Terminator to get rid of any "config not found" errors.
+Make a new profile in Terminator to get rid of any "config not found" errors, if you get them.
 
 ## oh-my-posh
 
-[oh-my-posh](https://ohmyposh.dev/docs/installation/linux) gives you nice powerline-like bash terminal themes. Uses a custom theme blended from Catppuccin and Chips. In `tigerppuccin.omp.json`, change the `DeviceName` variable to your own device's hostname if you wish to hide it in the terminal. The hostname will then only show up if SSH'd into a different machine.
+[oh-my-posh](https://ohmyposh.dev/docs/installation/linux) gives you nice powerline-like bash terminal themes. I use a custom theme blended from Catppuccin and Chips. In `tigerppuccin.omp.json`, change the `DeviceName` variable to your own device's hostname (command `hostname`) if you wish to hide it in the terminal. The hostname will then only show up if SSH'd into a different machine.
 
 ```bash
 sudo apt install unzip zip
@@ -85,7 +85,7 @@ cp tigerppuccin.omp.json ~/.cache/oh-my-posh/themes/
 echo -e '\nexport PATH=$PATH:${HOME}/.local/bin' >> ~/.bashrc
 echo 'eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/tigerppuccin.omp.json)"' >> ~/.bashrc
 exec bash
-# oh-my-posh enable upgrade  # Enable autoupgrade
+# oh-my-posh enable upgrade  # Uncomment to enable autoupgrade
 ```
 
 Install Nerd Font (for example `UbuntuMono Nerd Font`, installable with the command below) either from [nerdfonts.com](https://www.nerdfonts.com/) or with [oh-my-posh](https://ohmyposh.dev/docs/installation/fonts), and configure terminal to use it. If using VSCode, set the integrated terminal font in VSCode settings.
