@@ -31,6 +31,17 @@ source $HOME/.bashrc
 
 After adding these scripts to `.bashrc`, you might want to go through it and remove the duplicates that were already there for some of the commands.
 
+## Helper scripts
+
+Add everything under `scripts/` to `~/.local/bin/`. They are loaded as commands by default on login.
+
+```bash
+cp scripts/follow.sh $HOME/.local/bin/follow
+(chmod +x $HOME/.local/bin/follow if needed)
+```
+
+* follow: Runs 'tail -f' on the newest file matching the path/prefix given to it. Nice for following live logs whose exact names are different each time.
+
 ## Git configuration
 
 Enter your name and email for Git here, and generate an SSH key for Github/Gitlab.

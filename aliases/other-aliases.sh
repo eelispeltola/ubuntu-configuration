@@ -28,3 +28,5 @@ alias rth='ros2 topic hz'
 alias rqtim='ros2 run rqt_image_view rqt_image_view'
 alias frequentros='history | cut -c 8- | grep ros2 | sort | uniq -c  | sort -n -r | head -n 10'
 
+# Own scripts
+alias fl='follow'
